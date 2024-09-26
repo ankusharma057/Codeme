@@ -13,4 +13,5 @@ test:
 
 production:
   <<: *default
-  database: storage/production.sqlite3
+  # Use an environment variable for production to support different environments
+  database: <%= ENV['DATABASE_URL'] || 'storage/production.sqlite3' %>
