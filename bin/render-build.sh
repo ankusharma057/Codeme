@@ -1,9 +1,10 @@
 # exit on error
 set -o errexit
 
-rm -rf public
-npm install --prefix client && npm run build --prefix client
-cp -a client/build/. public/
+yarn install --check-files
+
+# Build React app
+yarn build
 
 bundle install
 bundle exec rake assets:precompile
